@@ -1,0 +1,143 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Journal Article
+% LaTeX Template
+% Version 1.4 (15/5/16)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com) with extensive modifications by
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[twocolumn]{article}
+
+\usepackage{blindtext} % Package to generate dummy text throughout this template 
+
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[pdftex]{graphicx}    
+\usepackage{units}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+\usepackage{palatino}
+\usepackage{mathpazo}
+%
+\usepackage[hidelinks]{hyperref}
+\usepackage{breqn}
+\usepackage{listings}    
+\usepackage[spanish]{babel}
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+
+\usepackage{enumitem} % Customized lists
+
+\newtheorem{theorem}{Teorema}
+\newtheorem{definition}{Definición}
+\newtheorem{lemma}{Lema}[section]
+\newtheorem{hip}{Hipótesis}[section]
+\newtheorem{corolary}{Corolario}[section]
+
+
+\setlist[itemize]{noitemsep} % Make itemize lists more compact
+\AtBeginDocument{%
+  \renewcommand\tablename{Tabla}
+}
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+\setlength\parindent{0pt}
+\usepackage{titlesec} % Allows customization of titles
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+\renewcommand\thesubsection{\roman{subsection}} % roman numerals for subsections
+
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+\usepackage{xcolor}
+\definecolor{light-gray}{gray}{0.95}
+\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{Reportes $\bullet$ Julián Jiménez} % Custom header text
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+\usepackage{titling} % Customizing the title section
+\usepackage{float}
+\usepackage{hyperref} % For hyperlinks in the PDF
+\usepackage{mathtools}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\setlength{\droptitle}{-4\baselineskip} % Move the title up
+
+\pretitle{\begin{center}\Huge\bfseries} % Article title formatting
+\posttitle{\end{center}} % Article title closing formatting
+\title{Sobre la Hipótesis de Riemann} % Article title
+\author{%
+\textsc{Julián Jiménez Cárdenas} \\[1ex] % Your name
+\normalsize \href{mailto:juliano.jimenezc@konradlorenz.edu.co}{juliano.jimenezc@konradlorenz.edu.co} % Your email address
+\\ \\ \normalsize{Sistemas Dinámicos}
+\\ \normalsize{Fundación Universitaria Konrad Lorenz, Bogotá.} % Your institution
+}
+
+\date{} % Leave empty to omit a date
+
+
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+Para los teoremas y definiciones, considere $X=<x_1,\dots,x_n>,Y=<y_1,\dots,y_n>$ cadenas del mismo tamaño que pertenecen al conjunto $\Sigma_\sigma^*$, con $\sigma\in\mathbb{N^*}$. 
+\begin{definition}[Cuerda Reducida]
+Si $X$ es una cadena usual, definimos su cuerda reducida como:
+\begin{equation}
+	red(X)=\{x_i: x_i\in X\},
+\end{equation}
+es decir, es el conjunto que contiene a todos los elementos que conforman la cadena $X$, sin repeticiones.
+\end{definition}
+
+
+\begin{definition}[Intervalo Permitido]
+Si $X$ e $Y$ son dos cadenas y $\delta\in\mathbb{N}$, definimos el intervalo permitido de $\overline{x_j}\in red(X)$ como:
+\begin{equation}
+	I_j=\bigcap\limits_{\substack{i=1 \\ x_i=\overline{x_j}}}^n [y_i-\delta,y_i+\delta],
+\end{equation}
+con $[y_i-\delta,y_i+\delta]\subset\Sigma_\sigma$, donde $x_i$ barre todas las posiciones de la cadena $X$.
+\end{definition}
+
+\begin{theorem}
+Si para algún $j=1,\dots,|red(X)|$, se cumple que $I_j=\emptyset$, entonces no es cierto que $X\overset{\delta}{\leadsto} Y.$z
+\end{theorem}
+
+\begin{theorem}
+Si se satisface la desigualdad:
+\begin{equation}
+\Big|\bigcup\limits_{j=1}^{|red(X)|} I_j\Big|<|red(X)|,
+\end{equation}
+entonces no es cierto que $X\overset{\delta}{\leadsto} Y.$
+\end{theorem}
+
+
+\end{document}
