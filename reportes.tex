@@ -115,7 +115,7 @@ Si $X$ es una cadena usual, definimos su cuerda reducida como:
 \begin{equation}
 	red(X)=\{x_i: x_i\in X\},
 \end{equation}
-es decir, es el conjunto que contiene a todos los elementos que conforman la cadena $X$, sin repeticiones.
+es decir, es el conjunto que contiene a todos los elementos que conforman la cadena $X$, sin repeticiones. Denotaremos el conjunto de todos los intervalos permitidos como $I=\{I_1,\dots,I_{|red(X)|}\}$
 \end{definition}
 
 
@@ -139,5 +139,11 @@ Si se satisface la desigualdad:
 entonces no es cierto que $X\overset{\delta}{\leadsto} Y.$
 \end{theorem}
 
+Deseamos encontrar una función biyectiva de modo que se satisfaga que $X\overset{\delta}{\leadsto} Y.$ Mediante la representación que construimos, nuestro objetivo es encontrar una función biyectiva
+
+$$f:I\rightarrow \bigcup\limits_{j=1}^{red(X)}I_j$$
+que cumpla la propiedad:
+
+$$f(I_j)\in I_j.$$
 
 \end{document}
